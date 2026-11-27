@@ -558,6 +558,10 @@ body.led-configuring #pdpStickyBar{ transform:translateY(110%) !important; }
   .led-spectable th{ width:48%; }
   .led-nudge__row{ flex-direction:column; align-items:flex-start; gap:.15rem; }
   .led-nudge__next{ align-self:flex-start; }
+  /* #ledDock is a .pdp-stickybar, so the shared mobile rule pins its Details chevron
+     absolutely at top-centre — but the clearing padding-top is scoped to #pdpStickyBar,
+     so the chevron dropped onto the configured price. Reserve the same 3rem here. */
+  #ledDock .pdp-stickybar__inner{ padding-top:3rem; padding-bottom:.95rem; }
 }
 
 /* ---- Responsive hardening (full audit, 320 → 1440) -----------------
