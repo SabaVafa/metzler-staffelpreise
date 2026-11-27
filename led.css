@@ -551,6 +551,9 @@ body.led-configuring #pdpStickyBar{ transform:translateY(110%) !important; }
 @media (max-width:767px){
   .led-staffel__table th,
   .led-staffel__table td{ padding:.55rem .7rem; }
+  /* match the header's horizontal padding to the table cells so the icon/title
+     and the right-side subtitle line up with the MENGE … SIE SPAREN columns */
+  .led-staffel__head{ padding-left:.7rem; padding-right:.7rem; }
   .led-spectable th{ width:48%; }
   .led-nudge__row{ flex-direction:column; align-items:flex-start; gap:.15rem; }
   .led-nudge__next{ align-self:flex-start; }
