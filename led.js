@@ -909,3 +909,23 @@ function ledRenderCta() {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 })();
+
+/* ===== 15 · Keep --pdp-header-h synced to the live site-header height =========
+   pdp-b.css pins the sticky quickbar + .psx-nav at top:var(--pdp-header-h), but
+   its JS sync lives in pdp-b.js, which this page does NOT load (it uses led.js).
+   Without the sync the var stays at its 81px CSS fallback while the compacted
+   mobile header is only ~65px — leaving a gap between the header and the green
+   bar that the gallery shows through. Track the real height here instead. ===== */
+(function () {
+  var header = document.querySelector('.header');
+  if (!header) return;
+  var root = document.documentElement, ticking = false;
+  function sync() {
+    ticking = false;
+    root.style.setProperty('--pdp-header-h', Math.round(header.getBoundingClientRect().height) + 'px');
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(sync); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  sync();
+})();
