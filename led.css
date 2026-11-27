@@ -194,17 +194,13 @@
 .led-addon:has(.led-addon__cb:checked) .led-addon__check{ background:var(--color-teal); border-color:var(--color-teal); }
 .led-addon:has(.led-addon__cb:checked) .led-addon__check svg{ opacity:1; transform:none; }
 .led-addon__cb:focus-visible ~ .led-addon__media{ outline:2px solid var(--color-teal); outline-offset:2px; }
-/* Phones: the 3-up grid is too tight below ~600px → horizontal scroll-snap
-   carousel. Keeps the vertical cards a comfortable size; the peeking edge card
-   signals that the row scrolls. */
+/* Phones: the 3-up grid is too tight below ~600px → fall back to a 2-up grid
+   that wraps. No horizontal scroll (every add-on is visible without swiping). */
 @media (max-width: 600px){
   .led-addons__list{
-    display:flex; gap:.5rem;
-    overflow-x:auto; scroll-snap-type:x proximity; scroll-padding-left:.55rem;
-    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:.5rem;
   }
-  .led-addons__list::-webkit-scrollbar{ display:none; }
-  .led-addon{ flex:0 0 9rem; scroll-snap-align:start; }
+  .led-addon{ flex:none; }   /* reset the former carousel flex-basis */
 }
 
 /* ---- Order summary under the CTA -------------------------------
