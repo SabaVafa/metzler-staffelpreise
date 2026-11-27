@@ -552,7 +552,7 @@ body.led-configuring #pdpStickyBar{ transform:translateY(110%) !important; }
   .led-staffel__table th,
   .led-staffel__table td{ padding:.55rem .7rem; }
   .led-spectable th{ width:48%; }
-  .led-nudge__row{ flex-direction:column; gap:.15rem; }
+  .led-nudge__row{ flex-direction:column; align-items:flex-start; gap:.15rem; }
   .led-nudge__next{ align-self:flex-start; }
 }
 
