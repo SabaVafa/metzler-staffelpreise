@@ -398,7 +398,12 @@
 .led-sumrow__txt{ min-width:0; }
 .led-sumrow__name b{ font-weight:700; }
 .led-sumrow__sub{ display:block; margin-top:.125rem; font-size:.8125rem; color:var(--color-graphite-600); }
-.led-sumrow__price{ justify-self:end; font-size:.9375rem; font-weight:700; color:var(--color-digital-black); font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right; }
+/* Reserve a stable width for the price column: with the parent's `auto` track the
+   column widened the moment a line total crossed into 3 digits (e.g. qty 5), which
+   stole width from the name and rewrapped it — shoving the qty stepper below down
+   under the user's finger. A min-width floor keeps the name column constant across
+   the whole realistic price range, so the summary height never changes with qty. */
+.led-sumrow__price{ justify-self:end; min-width:5.5rem; font-size:.9375rem; font-weight:700; color:var(--color-digital-black); font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right; }
 /* Every row leads with its quantity (e.g. "6 ×", "1 ×"). On the hero lamp it's the
    same strong black as the name; on accessory rows it's a teal accent — which, with
    the lighter name + price, keeps the extras reading as attached to the lamp. */

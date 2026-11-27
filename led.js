@@ -108,7 +108,7 @@ function ledRenderNudge(q, t) {
     if (txt) txt.innerHTML = 'Noch <b>' + need + '×</b> kaufen und <b>−' + next.off + ' %</b> sichern';
     if (nxt) nxt.textContent = '→ ' + LED.euro(next.price) + ' / Stück';
   } else {
-    if (txt) txt.innerHTML = '<b>Bestpreis −15 %</b> erreicht – maximaler Mengenrabatt';
+    if (txt) txt.innerHTML = '<b>Bestpreis −15 %</b> erreicht';
     if (nxt) nxt.textContent = '✓ ' + LED.euro(t.price) + ' / Stück';
   }
 }
